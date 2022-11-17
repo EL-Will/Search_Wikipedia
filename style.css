@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.format-row{
+    margin: 0;
+    padding: 0;
+}
+.pd-0{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 20px;
+}
+.flex-content{
+    display: flex;
+    flex-direction: row;
+}
+.box-content{
+    width: 100%;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+}
+.size-image{
+    width: 100%;
+    height: auto;
+}
+.padding-head{
+    padding: 10px 0px;
+}
