@@ -1,5 +1,15 @@
+let data1 =[];
+let data2 =[];
 let data3 = [];
+var divData ='';
 async function getData1(url1, url2, fn) {
+    console.log(fn);
+    data3=[];
+    data1=[];
+    data2=[];
+    divData= '';
+    document.getElementById('content').innerHTML = divData;
+    // async 1
     let myPromise = new Promise(function (resolve) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url1 + fn, true);
@@ -14,8 +24,8 @@ async function getData1(url1, url2, fn) {
         };
         xhr.send();
     })
-    let data1 = await myPromise;
-    //console.log(data1);
+    data1 = await myPromise;
+    // async 2
     for (let i in data1[1]) {
         let myPromise2 = new Promise(function (resolve) {
             var xhr = new XMLHttpRequest();
@@ -31,7 +41,7 @@ async function getData1(url1, url2, fn) {
             };
             xhr.send();
         })
-        let data2 = await myPromise2;
+        data2 = await myPromise2;
         let arrKeys = Object.keys(data2.query.pages);
         let id = arrKeys[0];
         let obj = {};
@@ -74,8 +84,7 @@ async function getData1(url1, url2, fn) {
         data3.push(obj);
     }
     console.log(data3);
-    var divData= '';
-    if(fn != ''){
+    if(fn !== ''){
         for(let i in data3){
             divData += 
             `
@@ -94,8 +103,7 @@ async function getData1(url1, url2, fn) {
     }
     else{
         divData= '';
-        data3 = [];
-        document.getElementById('content').innerHTML = '';
+        document.getElementById('content').innerHTML = divData;
     }
 }
 
